@@ -39,7 +39,7 @@ namespace WpfApp
         {
             if (!iv.IsCategoryIDExist(int.Parse(txtCategoryID.Text)))
             {
-                MessageBox.Show("ID khong ton tai");
+                MessageBox.Show("ID không tồn tại");
                 return;
             }
             try

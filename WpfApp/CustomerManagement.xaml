@@ -40,12 +40,12 @@
                           Height="220">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding CustomerID}" Width="100"/>
-                            <GridViewColumn Header="Tên công ty" DisplayMemberBinding="{Binding CompanyName}" Width="150"/>
-                            <GridViewColumn Header="Tên liên lạc" DisplayMemberBinding="{Binding ContactName}" Width="130"/>
-                            <GridViewColumn Header="Tiêu đề liên lạc" DisplayMemberBinding="{Binding ContactTitle}" Width="130"/>
-                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Address}" Width="150"/>
-                            <GridViewColumn Header="SĐT" DisplayMemberBinding="{Binding Phone}" Width="100"/>
+                            <GridViewColumn Header="Customer ID" DisplayMemberBinding="{Binding CustomerID}" Width="100"/>
+                            <GridViewColumn Header="Company Name" DisplayMemberBinding="{Binding CompanyName}" Width="150"/>
+                            <GridViewColumn Header="Contact Name" DisplayMemberBinding="{Binding ContactName}" Width="130"/>
+                            <GridViewColumn Header="Contact Title" DisplayMemberBinding="{Binding ContactTitle}" Width="130"/>
+                            <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="150"/>
+                            <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding Phone}" Width="100"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -83,7 +83,7 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Label Content="Tìm theo mã KH:"
+                    <Label Content="Search by ID:"
                            VerticalAlignment="Center"
                            FontWeight="Bold"
                            Margin="0,0,10,0"/>

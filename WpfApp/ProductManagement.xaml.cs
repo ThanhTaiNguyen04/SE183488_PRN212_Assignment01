@@ -34,7 +34,7 @@ namespace WpfApp
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            // Có thể xử lý logic tìm kiếm ở đây nếu cần
+            
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

@@ -30,6 +30,7 @@ namespace WpfApp.ViewModel
 
         public CustomerManagementViewModel()
         {
+            CustomerService.Instance.GenerateSampleDataset();
             Customers = new ObservableCollection<Customer>(CustomerService.Instance.GetCustomers());
             AddCommand = new RelayCommand(_ => AddCustomer());
             UpdateCommand = new RelayCommand(_ => UpdateCustomer(), _ => SelectedCustomer != null);
@@ -62,7 +63,7 @@ namespace WpfApp.ViewModel
         private void RemoveCustomer()
         {
             if (SelectedCustomer == null) return;
-            var result = System.Windows.MessageBox.Show($"Bạn có muốn xóa khách hàng '{SelectedCustomer.CompanyName}' không?", "Xác nhận xóa", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Question);
+            var result = System.Windows.MessageBox.Show($"Bạn có muốn xóa khách hàng '{SelectedCustomer.ContactName}' không?", "Xác nhận xóa", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Question);
             if (result == System.Windows.MessageBoxResult.Yes)
             {
                 CustomerService.Instance.RemoveCustomer(SelectedCustomer.CustomerID);

@@ -36,7 +36,7 @@ namespace WpfApp
             string phone = txtPhone.Text;
             if(!iv.isPhoneValidation(phone))
             {
-                MessageBox.Show("So dien thoai khong hop le");
+                MessageBox.Show("Số điện thoại không hợp lệ");
             }
             Customer c = customers.FirstOrDefault(cus => cus.Phone.Equals(phone));
 
@@ -46,7 +46,7 @@ namespace WpfApp
                 Close();
             }else
             {
-                MessageBox.Show("So dien thoai dang nhap sai hoac khong ton tai");
+                MessageBox.Show("Số điện thoại đăng nhập sai hoặc không tồn tại");
                 return;
             }
         }

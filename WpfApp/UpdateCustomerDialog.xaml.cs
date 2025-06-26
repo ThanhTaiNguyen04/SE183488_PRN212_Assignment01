@@ -35,7 +35,7 @@ namespace WpfApp
         {
             if(!iv.isPhoneValidation(txtPhone.Text))
             {
-                MessageBox.Show("Thong tin khong hop le");
+                MessageBox.Show("Thông tin không hợp lệ");
                 return;
             }
             try

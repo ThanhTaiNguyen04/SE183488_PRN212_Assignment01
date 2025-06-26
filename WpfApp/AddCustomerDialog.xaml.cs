@@ -43,16 +43,16 @@ namespace WpfApp
 
         private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
         {
-            if (txtCustomerID == null || txtContactTitle == null
-                || txtContactName == null || txtCompany == null ||
-                txtAddress == null || txtPhone == null)
+            if (string.IsNullOrWhiteSpace(txtCustomerID.Text) || string.IsNullOrWhiteSpace(txtContactTitle.Text)
+                || string.IsNullOrWhiteSpace(txtContactName.Text) || string.IsNullOrWhiteSpace(txtCompany.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress.Text) || string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("Hay nhap du lieu de them"); return;
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin để thêm khách hàng.", "Thiếu thông tin", MessageBoxButton.OK, MessageBoxImage.Warning); return;
             }
 
             if (!iv.isPhoneValidation(txtPhone.Text))
             {
-                MessageBox.Show("Sai format so dien thoai, hay nhap nhu vi du sau:\n+84901234567\r\n\r\n84901234567\r\n\r\n0901234567");
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập theo định dạng: 0901234567, 84901234567 hoặc +84901234567.", "Sai định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -63,13 +63,16 @@ namespace WpfApp
                 bool isSuccess = cs.AddCustomer(customer);
 
                 if (isSuccess) {
+                    MessageBox.Show("Thêm khách hàng thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                     DialogResult = true;
                     Close();
+                } else {
+                    MessageBox.Show("Không thể thêm khách hàng. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch
             {
-                MessageBox.Show("Khong the them khach hang vui long kiem tra thong tin");
+                MessageBox.Show("Đã xảy ra lỗi khi thêm khách hàng. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

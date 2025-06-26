@@ -60,7 +60,7 @@ namespace WpfApp
         {
             if(!iv.isPhoneValidation(txtPhone.Text))
             {
-                MessageBox.Show("So dien thoai khong hop le");
+                MessageBox.Show("Số điện thoại không hợp lệ");
                 return;
             }
 
@@ -68,11 +68,11 @@ namespace WpfApp
 
             if (cs.UpdateCustomer(customer))
             {
-                MessageBox.Show("Cap nhat thanh cong");
+                MessageBox.Show("Cập nhật thành công");
             }
             else
             {
-                MessageBox.Show("Cap nhat that bai");
+                MessageBox.Show("Cập nhật thất bại");
             }
         }
 

@@ -57,21 +57,27 @@
 
                 <!-- Buttons -->
                 <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Margin="0,30,0,0">
+                            HorizontalAlignment="Right"
+                            Margin="0,20,0,0">
+                    <Button Content="Back"
+                            Width="90"
+                            Height="35"
+                            Margin="5,0"
+                            Click="btnBack_Click"/>
                     <Button x:Name="btnAddCustomer"
                             Content="Add"
-                            Width="110"
-                            Height="38"
-                            Margin="0,0,20,0"
+                            Width="90"
+                            Height="35"
+                            Margin="5,0"
                             Background="#27ae60"
                             Foreground="White"
                             FontWeight="Bold"
                             Click="btnAddCustomer_Click"/>
 
                     <Button Content="Cancel"
-                            Width="110"
-                            Height="38"
+                            Width="90"
+                            Height="35"
+                            Margin="5,0"
                             Background="#c0392b"
                             Foreground="White"
                             FontWeight="Bold"
