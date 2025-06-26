@@ -78,16 +78,9 @@ namespace WpfApp
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            CustomerLogin cl = new CustomerLogin();
-            cl.Show();
-            Close();
-        }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
             CustomerMainForm mainForm = new CustomerMainForm(currentCustomer);
             mainForm.Show();
-            this.Close();
+            Close();
         }
     }
 }

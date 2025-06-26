@@ -56,13 +56,18 @@ namespace WpfApp.ViewModel
                 Customers.Clear();
                 foreach (var c in CustomerService.Instance.GetCustomers())
                     Customers.Add(c);
+                System.Windows.MessageBox.Show("Bạn đã cập nhật thành công");
             }
         }
         private void RemoveCustomer()
         {
             if (SelectedCustomer == null) return;
-            CustomerService.Instance.RemoveCustomer(SelectedCustomer.CustomerID);
-            Customers.Remove(SelectedCustomer);
+            var result = System.Windows.MessageBox.Show($"Bạn có muốn xóa khách hàng '{SelectedCustomer.CompanyName}' không?", "Xác nhận xóa", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Question);
+            if (result == System.Windows.MessageBoxResult.Yes)
+            {
+                CustomerService.Instance.RemoveCustomer(SelectedCustomer.CustomerID);
+                Customers.Remove(SelectedCustomer);
+            }
         }
         private void SearchCustomer()
         {

@@ -56,13 +56,18 @@ namespace WpfApp.ViewModel
                 Products.Clear();
                 foreach (var p in ProductService.Instance.GetProducts())
                     Products.Add(p);
+                System.Windows.MessageBox.Show("Bạn đã cập nhật thành công");
             }
         }
         private void RemoveProduct()
         {
             if (SelectedProduct == null) return;
-            ProductService.Instance.RemoveProduct(SelectedProduct.ProductID);
-            Products.Remove(SelectedProduct);
+            var result = System.Windows.MessageBox.Show($"Bạn có muốn xóa sản phẩm '{SelectedProduct.ProductName}' không?", "Xác nhận xóa", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Question);
+            if (result == System.Windows.MessageBoxResult.Yes)
+            {
+                ProductService.Instance.RemoveProduct(SelectedProduct.ProductID);
+                Products.Remove(SelectedProduct);
+            }
         }
         private void SearchProduct()
         {

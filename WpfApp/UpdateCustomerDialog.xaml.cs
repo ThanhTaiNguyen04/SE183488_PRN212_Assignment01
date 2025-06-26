@@ -61,10 +61,5 @@ namespace WpfApp
                 MessageBox.Show("Error updating customer: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }
