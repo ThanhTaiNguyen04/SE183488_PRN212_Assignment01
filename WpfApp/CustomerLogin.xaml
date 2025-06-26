@@ -1,0 +1,71 @@
+﻿<Window x:Class="WpfApp.CustomerLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="CustomerLogin" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#f0f4f8">
+
+    <Grid>
+        <Border Width="600" Padding="30" Background="White" CornerRadius="10"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="PRN212 Assignment 01"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#2c3e50"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Building a Sales Order Management System using WPF and LINQ"
+                           FontSize="16"
+                           Foreground="#555"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Margin="0,10,0,10"
+                           HorizontalAlignment="Center"
+                           Width="500"/>
+
+                <TextBlock Text="Sales Management System (SMS)"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="#34495e"
+                           TextAlignment="Center"
+                           Margin="0,0,0,20"
+                           HorizontalAlignment="Center"/>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="350">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Label Content="Phone:" Width="100" FontSize="16" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txtPhone" Width="220" Height="30" FontSize="16"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <Button x:Name="btnCustomerLogin"
+                                Content="Login"
+                                Width="100"
+                                Height="35"
+                                Margin="5,0"
+                                Background="#2980b9"
+                                Foreground="White"
+                                FontSize="14"
+                                Click="btnCustomerLogin_Click"/>
+
+                        <Button x:Name="btnExit"
+                                Content="Back"
+                                Width="100"
+                                Height="35"
+                                Margin="5,0"
+                                Background="#cccccc"
+                                Foreground="Black"
+                                FontSize="14"
+                                Click="btnExit_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
