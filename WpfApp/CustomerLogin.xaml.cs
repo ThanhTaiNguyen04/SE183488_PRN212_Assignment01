@@ -36,7 +36,10 @@ namespace WpfApp
             string phone = txtPhone.Text;
             if(!iv.isPhoneValidation(phone))
             {
-                MessageBox.Show("Số điện thoại không hợp lệ");
+                MessageBox.Show(
+                    "Số điện thoại không hợp lệ. Vui lòng nhập đúng định dạng!\n\nVí dụ: 0901234567",
+                    "Lỗi định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
             Customer c = customers.FirstOrDefault(cus => cus.Phone.Equals(phone));
 
@@ -46,7 +49,7 @@ namespace WpfApp
                 Close();
             }else
             {
-                MessageBox.Show("Số điện thoại đăng nhập sai hoặc không tồn tại");
+                MessageBox.Show("Số điện thoại đăng nhập sai hoặc không tồn tại!", "Đăng nhập thất bại", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }

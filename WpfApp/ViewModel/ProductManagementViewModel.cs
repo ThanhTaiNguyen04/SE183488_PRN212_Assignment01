@@ -73,6 +73,13 @@ namespace WpfApp.ViewModel
         }
         private void SearchProduct()
         {
+            if (string.IsNullOrWhiteSpace(SearchProductId))
+            {
+                Products.Clear();
+                foreach (var p in ProductService.Instance.GetProducts())
+                    Products.Add(p);
+                return;
+            }
             if (int.TryParse(SearchProductId, out int id))
             {
                 var found = ProductService.Instance.SearchProduct(id);

@@ -57,7 +57,7 @@ namespace WpfApp
 
             if (!iv.isPhoneValidation(txtPhone.Text))
             {
-                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập theo định dạng: 0901234567, 84901234567 hoặc +84901234567.", "Sai định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập theo định dạng: 0901234567", "Sai định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

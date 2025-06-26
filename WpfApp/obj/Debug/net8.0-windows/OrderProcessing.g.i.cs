@@ -100,7 +100,7 @@ namespace WpfApp {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp;component/orderprocessing.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfApp;V1.0.0.0;component/orderprocessing.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\OrderProcessing.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
