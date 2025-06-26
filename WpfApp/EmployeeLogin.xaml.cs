@@ -43,7 +43,7 @@ namespace WpfApp
                 Close();
             } else
             {
-                MessageBox.Show("Incorrect username or password");
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Đăng nhập thất bại", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
