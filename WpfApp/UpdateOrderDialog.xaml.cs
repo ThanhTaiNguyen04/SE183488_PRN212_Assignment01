@@ -44,33 +44,42 @@ namespace WpfApp
         {
             try
             {
-                int cid = int.Parse(txtCustomerID.Text);
-                int eid = int.Parse(txtEmployeeID.Text);
-                int oid = int.Parse(txtOrderID.Text);
-
-                if(iv.IsCustomerIDExist(cid) || !iv.IsEmployeeIDExist(eid) || !iv.IsOrderIDExist(oid))
+                if (!int.TryParse(txtCustomerID.Text, out int cid) ||
+                    !int.TryParse(txtEmployeeID.Text, out int eid) ||
+                    !int.TryParse(txtOrderID.Text, out int oid))
                 {
+                    MessageBox.Show("Vui lòng nhập đúng định dạng số cho các trường mã!", "Lỗi định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (!iv.IsEmployeeIDExist(eid) || !iv.IsOrderIDExist(oid))
+                {
+                    MessageBox.Show("Mã nhân viên hoặc mã đơn hàng không tồn tại!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
                 Order order = new Order
                 {
-                    OrderID = int.Parse(txtOrderID.Text),
-                    CustomerID = int.Parse(txtCustomerID.Text),
-                    EmployeeID = int.Parse(txtEmployeeID.Text),
+                    OrderID = oid,
+                    CustomerID = cid,
+                    EmployeeID = eid,
                     OrderDate = dpOrderDate.SelectedDate ?? DateTime.Now
                 };
                 
                 if(os.UpdateOrder(order))
                 {
+                    MessageBox.Show("Cập nhật đơn hàng thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                     DialogResult = true;
                     Close();
                 }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật đơn hàng. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

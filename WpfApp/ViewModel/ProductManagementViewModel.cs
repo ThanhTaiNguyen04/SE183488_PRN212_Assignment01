@@ -30,6 +30,8 @@ namespace WpfApp.ViewModel
 
         public ProductManagementViewModel()
         {
+            CategoryService.Instance.GenerateSampleDataset();
+            ProductService.Instance.GenerateSampleDataset();
             Products = new ObservableCollection<Product>(ProductService.Instance.GetProducts());
             AddCommand = new RelayCommand(_ => AddProduct());
             UpdateCommand = new RelayCommand(_ => UpdateProduct(), _ => SelectedProduct != null);

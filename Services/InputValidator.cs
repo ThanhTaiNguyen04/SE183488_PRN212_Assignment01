@@ -44,27 +44,27 @@ namespace Services
 
         public bool IsCustomerIDExist(int customerID)
         {
-            return customers.Any(c => c.CustomerID == customerID);
+            return customerService.GetCustomers().Any(c => c.CustomerID == customerID);
         }
 
         public bool IsCategoryIDExist(int categoryID)
         {
-            return categories.Any(c => c.CategoryID == categoryID);
+            return categoryService.GetCategories().Any(c => c.CategoryID == categoryID);
         }
 
         public bool IsEmployeeIDExist(int employeeID)
         {
-            return employees.Any(e => e.EmployeeID == employeeID);
+            return employeeService.GetEmployees().Any(e => e.EmployeeID == employeeID);
         }
 
         public bool IsProductIDExist(int productID)
         {
-            return products.Any(p => p.ProductID == productID);
+            return productService.GetProducts().Any(p => p.ProductID == productID);
         }
 
         public bool IsOrderIDExist(int orderID)
         {
-            return orders.Any(o => o.OrderID == orderID);
+            return orderService.GetOrders().Any(o => o.OrderID == orderID);
         }
     }
 }

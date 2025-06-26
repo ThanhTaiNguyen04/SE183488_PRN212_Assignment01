@@ -47,13 +47,17 @@ namespace WpfApp
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            int pid = int.Parse(txtProductID.Text);
-            int sid = int.Parse(txtSupplierID.Text);
-            int cid = int.Parse(txtCategoryID.Text);
+            if (!int.TryParse(txtProductID.Text, out int pid) ||
+                !int.TryParse(txtSupplierID.Text, out int sid) ||
+                !int.TryParse(txtCategoryID.Text, out int cid))
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng số cho các trường mã!", "Lỗi định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             if (iv.IsProductIDExist(pid) || !iv.IsCategoryIDExist(cid))
             {
-                MessageBox.Show("Thong tin khong hop le hoac san pham da ton tai");
+                MessageBox.Show("Thông tin không hợp lệ hoặc sản phẩm đã tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -65,13 +69,18 @@ namespace WpfApp
 
                 if (isSuccess)
                 {
+                    MessageBox.Show("Thêm sản phẩm thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                     DialogResult = true;
                     Close();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thêm sản phẩm. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch
             {
-                MessageBox.Show("Khong the them san pham vui long kiem tra thong tin");
+                MessageBox.Show("Đã xảy ra lỗi khi thêm sản phẩm. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

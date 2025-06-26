@@ -91,10 +91,7 @@
                      Height="30"
                      Margin="5,0"
                      VerticalContentAlignment="Center"
-                     Text="Enter Product ID"
-                     GotFocus="TextBox_GotFocus"
-                     LostFocus="TextBox_LostFocus"
-                     TextChanged="TextBox_TextChanged"/>
+                     Text="{Binding SearchProductId, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button Content="Search"
                     Width="80"

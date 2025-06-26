@@ -52,6 +52,7 @@ namespace WpfApp
                 OrderUpdateDialog orderDialog = new OrderUpdateDialog(selectedOrder);
                 if(orderDialog.ShowDialog() == true)
                 {
+                    MessageBox.Show("Cập nhật đơn hàng thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                     DisplayOrders();
                 }
             }
@@ -60,14 +61,13 @@ namespace WpfApp
 
         private void btnRemoveOrder_Click(object sender, RoutedEventArgs e)
         {
-
             if (lvOrder.SelectedItem is not Order order)
             {
-                MessageBox.Show("Please select an order on the list");
+                MessageBox.Show("Vui lòng chọn đơn hàng trong danh sách.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            MessageBoxResult mbr = MessageBox.Show("Ban muon xoa don hang?", "Xac nhan xoa", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult mbr = MessageBox.Show("Bạn có muốn xóa đơn hàng này không?", "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (mbr == MessageBoxResult.No)
             {
                 return;
@@ -77,11 +77,12 @@ namespace WpfApp
 
             if (isSuccess)
             {
+                MessageBox.Show("Xóa đơn hàng thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                 DisplayOrders();
             }
             else
             {
-                MessageBox.Show("Khong the xoa don hang");
+                MessageBox.Show("Không thể xóa đơn hàng.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -98,7 +99,7 @@ namespace WpfApp
             }
             else
             {
-                MessageBox.Show($"No Order with {id} found");
+                MessageBox.Show($"Không tìm thấy đơn hàng với mã {id}.", "Không tìm thấy", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

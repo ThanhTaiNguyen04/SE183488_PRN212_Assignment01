@@ -30,9 +30,14 @@ namespace WpfApp
 
         private Customer CreateCustomerFromForm()
         {
+            if (!int.TryParse(txtCustomerID.Text, out int customerId))
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng số cho mã khách hàng!", "Lỗi định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return null;
+            }
             return new Customer
             {
-                CustomerID = int.Parse(txtCustomerID.Text),
+                CustomerID = customerId,
                 CompanyName = txtCompany.Text,
                 Address = txtAddress.Text,
                 Phone = txtPhone.Text,
@@ -59,6 +64,7 @@ namespace WpfApp
             try
             {
                 Customer customer = CreateCustomerFromForm();
+                if (customer == null) return;
 
                 bool isSuccess = cs.AddCustomer(customer);
 

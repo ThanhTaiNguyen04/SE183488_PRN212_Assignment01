@@ -31,9 +31,13 @@ namespace WpfApp
 
         private Order CreateOrderFromForm()
         {
-            int cid = int.Parse(txtCustomerID.Text);
-            int eid = int.Parse(txtEmployeeID.Text);
-            int oid = int.Parse(txtOrderID.Text);
+            if (!int.TryParse(txtCustomerID.Text, out int cid) ||
+                !int.TryParse(txtEmployeeID.Text, out int eid) ||
+                !int.TryParse(txtOrderID.Text, out int oid))
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng số cho các trường mã!", "Lỗi định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return null;
+            }
 
             if (iv.IsCustomerIDExist(cid) || !iv.IsEmployeeIDExist(eid) || !iv.IsOrderIDExist(oid))
             {
@@ -42,9 +46,9 @@ namespace WpfApp
 
             return new Order
             {
-                OrderID = int.Parse(txtOrderID.Text),
-                CustomerID = int.Parse(txtCustomerID.Text),
-                EmployeeID = int.Parse(txtEmployeeID.Text),
+                OrderID = oid,
+                CustomerID = cid,
+                EmployeeID = eid,
                 OrderDate = dpOrderDate.SelectedDate ?? DateTime.Now
             };
         }
@@ -62,19 +66,24 @@ namespace WpfApp
                 Order order = CreateOrderFromForm();
                 if (order == null)
                 {
-                    MessageBox.Show("Thong tin nhap khong hop le");
+                    MessageBox.Show("Thông tin nhập không hợp lệ.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
                 bool isSuccess = os.AddOrder(order);
                 if (isSuccess)
                 {
+                    MessageBox.Show("Thêm đơn hàng thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                     DialogResult = true;
                     Close();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thêm đơn hàng. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch
             {
-                MessageBox.Show("Khong the them don hang vui long kiem tra thong tin");
+                MessageBox.Show("Đã xảy ra lỗi khi thêm đơn hàng. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

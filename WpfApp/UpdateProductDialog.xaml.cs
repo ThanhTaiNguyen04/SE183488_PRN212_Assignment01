@@ -37,37 +37,53 @@ namespace WpfApp
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (!iv.IsCategoryIDExist(int.Parse(txtCategoryID.Text)))
+            if (!int.TryParse(txtProductID.Text, out int productId) ||
+                !int.TryParse(txtSupplierID.Text, out int supplierId) ||
+                !int.TryParse(txtCategoryID.Text, out int categoryId) ||
+                !int.TryParse(txtQuantityPerUnit.Text, out int quantityPerUnit) ||
+                !double.TryParse(txtUnitPrice.Text, out double unitPrice) ||
+                !int.TryParse(txtUnitsInStock.Text, out int unitsInStock) ||
+                !int.TryParse(txtUnitsOnOrder.Text, out int unitsOnOrder) ||
+                !int.TryParse(txtReorderLevel.Text, out int reorderLevel))
             {
-                MessageBox.Show("ID không tồn tại");
+                MessageBox.Show("Vui lòng nhập đúng định dạng số cho các trường thông tin sản phẩm!", "Lỗi định dạng", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!iv.IsCategoryIDExist(categoryId))
+            {
+                MessageBox.Show("Mã loại sản phẩm không tồn tại!", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             try
             {
                 Product product = new Product
                 {
-                    ProductID = int.Parse(txtProductID.Text),
+                    ProductID = productId,
                     ProductName = txtProductName.Text,
-                    SupplierID = int.Parse(txtSupplierID.Text),
-                    CategoryID = int.Parse(txtCategoryID.Text),
-                    QuantityPerUnit = int.Parse(txtQuantityPerUnit.Text),
-                    UnitPrice = double.Parse(txtUnitPrice.Text),
-                    UnitsInStock = int.Parse(txtUnitsInStock.Text),
-                    UnitsOnOrder = int.Parse(txtUnitsOnOrder.Text),
-                    ReorderLevel = int.Parse(txtReorderLevel.Text),
+                    SupplierID = supplierId,
+                    CategoryID = categoryId,
+                    QuantityPerUnit = quantityPerUnit,
+                    UnitPrice = unitPrice,
+                    UnitsInStock = unitsInStock,
+                    UnitsOnOrder = unitsOnOrder,
+                    ReorderLevel = reorderLevel,
                     Discontinued = chkDiscontinued.IsChecked ?? false
                 };
 
                 if (ps.UpdateProduct(product))
                 {
+                    MessageBox.Show("Cập nhật sản phẩm thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                     DialogResult = true;
                     Close();
                 }
-                
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật sản phẩm. Vui lòng kiểm tra lại thông tin.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

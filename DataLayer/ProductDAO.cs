@@ -17,79 +17,79 @@ namespace DataLayer
                 return products;
             }
 
+            products.Clear();
             products.Add(new Product()
             {
                 ProductID = 1,
-                ProductName = "Soda",
+                ProductName = "Trà Sữa Matcha",
                 SupplierID = 1,
-                CategoryID = 1,
-                QuantityPerUnit = 10,
-                UnitPrice = 18,
-                UnitsInStock = 39,
-                UnitsOnOrder = 0,
-                ReorderLevel = 10,
+                CategoryID = 1, // Thực phẩm đóng hộp
+                QuantityPerUnit = 20,
+                UnitPrice = 28,
+                UnitsInStock = 45,
+                UnitsOnOrder = 10,
+                ReorderLevel = 20,
                 Discontinued = false
             });
 
             products.Add(new Product()
             {
                 ProductID = 2,
-                ProductName = "Nam Ngu",
+                ProductName = "Nước Mắm Phú Quốc",
                 SupplierID = 2,
-                CategoryID = 1,
-                QuantityPerUnit = 24,
-                UnitPrice = 19,
-                UnitsInStock = 17,
-                UnitsOnOrder = 40,
-                ReorderLevel = 25,
+                CategoryID = 2, // Gia dụng
+                QuantityPerUnit = 12,
+                UnitPrice = 35,
+                UnitsInStock = 30,
+                UnitsOnOrder = 15,
+                ReorderLevel = 10,
                 Discontinued = false
             });
 
             products.Add(new Product()
             {
                 ProductID = 3,
-                ProductName = "Syrup",
+                ProductName = "Dầu Gội Clear",
                 SupplierID = 3,
-                CategoryID = 2,
-                QuantityPerUnit = 12,
-                UnitPrice = 10,
-                UnitsInStock = 13,
-                UnitsOnOrder = 70,
-                ReorderLevel = 5,
+                CategoryID = 3, // Chăm sóc cá nhân
+                QuantityPerUnit = 18,
+                UnitPrice = 50,
+                UnitsInStock = 60,
+                UnitsOnOrder = 0,
+                ReorderLevel = 20,
                 Discontinued = false
             });
 
             products.Add(new Product()
             {
                 ProductID = 4,
-                ProductName = "Gia Vi",
+                ProductName = "Cam Sành",
                 SupplierID = 4,
-                CategoryID = 2,
-                QuantityPerUnit = 48,
-                UnitPrice = 22,
-                UnitsInStock = 53,
-                UnitsOnOrder = 0,
-                ReorderLevel = 0,
+                CategoryID = 4, // Trái cây & Rau củ
+                QuantityPerUnit = 24,
+                UnitPrice = 40,
+                UnitsInStock = 80,
+                UnitsOnOrder = 25,
+                ReorderLevel = 30,
                 Discontinued = false
             });
 
             products.Add(new Product()
             {
                 ProductID = 5,
-                ProductName = "Banh Mi",
+                ProductName = "Bánh Quy OREO",
                 SupplierID = 5,
-                CategoryID = 3,
-                QuantityPerUnit = 16,
-                UnitPrice = 25,
-                UnitsInStock = 120,
+                CategoryID = 5, // Đồ ăn nhanh
+                QuantityPerUnit = 10,
+                UnitPrice = 33,
+                UnitsInStock = 100,
                 UnitsOnOrder = 0,
-                ReorderLevel = 15,
-                Discontinued = true
+                ReorderLevel = 25,
+                Discontinued = false
             });
 
             isGenerated = true;
             return products;
-
         }
         public List<Product> GetProducts ()
         {
@@ -99,11 +99,11 @@ namespace DataLayer
         {
             Product p = products.FirstOrDefault(p=> p.ProductID == product.ProductID);
 
-            if (p == null) { 
+            if (p != null) {
                 return false;
             }
 
-            products.Add(p);
+            products.Add(product);
             return true;
         }
 

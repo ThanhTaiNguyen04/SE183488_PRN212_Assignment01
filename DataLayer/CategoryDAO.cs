@@ -18,11 +18,12 @@ namespace DataLayer
                 return categories;
             }
 
+                categories.Clear();
                 categories.Add(new Category()
                 {
                     CategoryID = 1,
-                    CategoryName = "Thực phẩm đóng hộp",
-                    Description = "Cá hộp, thịt hộp, đậu đóng hộp, trái cây đóng hộp"
+                    CategoryName = "Đồ uống",
+                    Description = "Nước giải khát, trà, cà phê, nước ngọt, nước ép, sữa, ..."
                 });
 
                 categories.Add(new Category()
