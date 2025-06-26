@@ -1,0 +1,12 @@
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\bin\Debug\net8.0\BusinessLayer.deps.json
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\bin\Debug\net8.0\BusinessLayer.dll
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\bin\Debug\net8.0\BusinessLayer.pdb
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.AssemblyInfoInputs.cache
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.AssemblyInfo.cs
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.sourcelink.json
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.dll
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\refint\BusinessLayer.dll
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\BusinessLayer.pdb
+D:\PRN212(new)\PRN212_Assignment01\Sales-Management-System\BusinessLayer\obj\Debug\net8.0\ref\BusinessLayer.dll
